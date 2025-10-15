@@ -1,0 +1,9 @@
+# Core dependencies
+numpy
+scikit-learn
+sentence-transformers
+
+Faiss
+openai
+
+streamlit

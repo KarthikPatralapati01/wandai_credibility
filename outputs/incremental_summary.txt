@@ -1,0 +1,18 @@
+======================
+📌 NEW CLAIMS ADDED
+======================
+1. "NHTSA also reported that Tesla vehicles had a higher rate of Autopilot-related collisions per million miles compared to other manufacturers’ advanced driver-assistance systems."
+   Score: 0.647 (MEDIUM)
+   Reason: This new claim introduces a verified metric comparing Tesla's Autopilot collision rates to competitors, providing an independent benchmark for assessing the safety of advanced driver-assistance systems.
+
+============================
+♻️ UPDATED EXISTING CLAIMS
+============================
+"However, the IIHS also warned that Tesla’s driver assistance features can encourage overreliance, leading to driver distraction in some cases."
+Old: 0.404 → New: 0.465  ▲ Increased
+Reason: The increase in credibility is due to moderate-credibility evidence from NHTSA indicating that Tesla's Autopilot-related collision rate is higher than that of competitors, highlighting potential safety concerns associated with overreliance on its driver assistance features.
+
+==============================
+🧠 LLM SUMMARY OF IMPACT
+==============================
+The new claim from NHTSA contradicts prior claims by suggesting Tesla's Autopilot-related collision rate is higher than competitors, thereby challenging the perception of its safety compared to other systems.

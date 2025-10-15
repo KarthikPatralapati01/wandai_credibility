@@ -1,0 +1,73 @@
+
+IDEATION + PLANNING
+=====================
+
+🎯 Problem Overview
+---------------------
+Large Language Models (LLMs) synthesize information from diverse sources. However, credibility varies depending on the source (e.g., peer-reviewed study vs. corporate PR), content (e.g., superlatives vs. data-backed facts), and context (e.g., self-promotion vs. independent verification). This system evaluates and continuously updates the credibility of extracted claims, especially as new sources (like Pitchbook reports) are added.
+
+📦 Solution Architecture
+--------------------------
+- [Source Ingestion]
+    → Read all `.txt` files from `data/` (can be gov docs, news articles, PRs, etc.)
+    → Each source gets metadata: type, publisher, path, date
+
+- [Claim Extraction Agent]
+    → Applies heuristic rules to extract factual/promotional/numeric claims
+    → Annotates tone and claim type
+
+- [Feature Engineering + Scoring Engine]
+    → Computes features per claim: source_prior, linguistic, contextuality, recency, conflict-of-interest
+    → Assigns credibility score [0,1] + band (HIGH, MEDIUM, LOW)
+
+- [Corroboration Engine]
+    → Embeds claims using SentenceTransformers (or token cosine fallback)
+    → Finds best corroborating evidence from *different publishers*
+    → Boosts credibility if independently corroborated
+
+- [Incremental Update Engine]
+    → When a new file is added:
+        ▪ Extract new claims
+        ▪ Embed them
+        ▪ Match against previous claims (similarity > threshold)
+        ▪ Re-score only affected claims
+        ▪ Generate new scores, before → after deltas, and reasons using GPT
+        ▪ Summarize updated credibility research
+
+- [Reporting]
+    → Full research report (`report_initial.txt`, `report_incremental.txt`)
+    → Human-readable summary of only affected claims (`incremental_summary.txt`)
+
+🤖 Agent Design
+--------------------------
+- Extraction Agent: Parses and annotates each source's claims
+- Scoring Agent: Computes weighted credibility features and assigns band
+- Corroboration Agent: Embeds and compares semantic similarity
+- Update Agent: Selectively updates only impacted claims after new evidence
+- LLM Explainer: Generates 1-sentence human-readable reasons per change
+- Summary Agent: Writes natural language summary of overall impact
+
+📊 Goals / KPIs
+--------------------------
+- Coverage: % of sources from which valid claims are extracted
+- Precision: % of high-scoring claims aligned with independent sources
+- Change Detection: % of claims updated after adding new sources
+- Runtime: Execution time for incremental vs full recomputation
+- LLM Cost: Number of GPT calls per update
+
+🏗 Infrastructure Sketch
+--------------------------
+- File-based ingestion (MVP) using plain `.txt`
+- Embedding with SentenceTransformers (MiniLM); fallback to lexical cosine
+- All state stored as JSON and .txt reports
+- Designed for command-line execution, easily upgradable to web API
+
+🧪 Edge Cases Handled
+--------------------------
+- Conflicting claims from new sources → score reduced (with contradiction-based logic)
+- Redundant claims → not re-counted for corroboration
+- Promotional superlatives from ads/PR → penalized in score
+- No claims found → graceful fallback
+- No matching prior claims → new claims added, none updated
+- LLM not available → disables incremental mode (Option 2)
+

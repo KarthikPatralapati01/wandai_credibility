@@ -1,0 +1,102 @@
+
+STRATEGY REVIEW
+=====================
+
+🧭 Goal
+---------
+Enable continuous credibility assessment and update of LLM-referenced research using new sources (e.g., Pitchbook files) — without re-running everything from scratch. Ensure:
+- High-quality updated research (equal to full rerun)
+- Minimal additional execution time
+- Minimal computational overhead
+
+⚙️ How to SCALE the System
+------------------------------
+1. **Vector DB Indexing**
+   - Store all claim embeddings in a vector DB (e.g., Qdrant, Pinecone)
+   - Match new claims only to semantically similar old ones (SIM > 0.35)
+
+2. **Batch Ingestion Pipeline**
+   - Async worker queues using Celery / Arq / Prefect
+   - Parallel claim extraction, embedding, scoring
+
+3. **Persistent Claim Registry**
+   - Store versioned claims with history: claim_id_v1, _v2, etc.
+   - Avoids repeated recomputation
+
+4. **Multi-source Normalization**
+   - Unify structured sources (e.g., CSVs, HTML tables, PDFs) using OCR/NLP
+   - Add metadata like funding source, recency, etc.
+
+5. **Agent-Oriented Design**
+   - Each task (Extraction, Embedding, Scoring, Contradiction, LLM-Reasoning) as a micro-agent
+   - Can scale horizontally or modularly
+
+💸 How to MONETIZE
+-----------------------
+1. **Research Credibility as a Service**
+   - API to submit sources → get scored research reports
+   - Tiered pricing per file, per claim, per LLM token
+
+2. **Enterprise Dashboards**
+   - Offer compliance dashboards for healthcare, finance, legal orgs
+   - Track changing claims over time
+
+3. **LLM Plugin / Extension**
+   - Plugin for ChatGPT, Claude, etc., to score credibility of any paragraph
+
+4. **PDF Auditor Tool**
+   - Upload investor decks or PRs → flag bias/superlatives
+
+5. **Credibility Score API**
+   - Score any claim + explain reason → use in GenAI pipelines
+
+💰 How to OPTIMIZE COST
+---------------------------
+1. **Selective Embedding**
+   - Only embed new claims
+   - Cache previous embeddings using hash
+
+2. **Similarity First, LLM Later**
+   - Use Jaccard/cosine sim for matching → call LLM **only** if similarity > threshold
+
+3. **Smaller Models for Contradiction**
+   - Use DeBERTa-v3-small or FinBERT for contradiction/NLI checks
+   - Use quantized models or Triton inference
+
+4. **LLM Budget Guardrails**
+   - Set token caps per batch
+   - Use gpt-3.5 for non-critical summaries; gpt-4 for final report only
+
+5. **On-Demand Update Mode**
+   - Don't auto-update; trigger updates via webhook, CLI, or human review
+
+🚢 How to SHIP TO PRODUCTION
+--------------------------------
+1. **Containerized Services**
+   - Dockerized claim-scoring service with REST API (FastAPI + Uvicorn)
+
+2. **Job Queue Pipeline**
+   - New source → `extract → embed → match → rescore → explain → write report`
+
+3. **Vector DB + Redis**
+   - Qdrant for semantic sim
+   - Redis for caching scores and embeddings
+
+4. **Monitoring & Metrics**
+   - Prometheus + Grafana for runtime stats
+   - Track LLM usage, claim deltas, update frequency
+
+5. **CI/CD + Tests**
+   - Pytest for unit and integration tests (score update correctness, contradiction detection)
+   - GitHub Actions or Terraform Cloud for deploys
+
+📈 Real-World Constraints
+------------------------------
+- **Latency**: Keep incremental update under 5s for <100 claims
+- **Throughput**: Score 500–1,000 claims/hour per CPU core
+- **LLM cost**: Under $0.01 per claim on average (gpt-4-mini or gpt-3.5)
+
+✅ Summary
+----------------
+This system is already architecture-aligned to scale. With low-cost approximate matching, LLM summarization only when needed, and a clean separation of scoring vs. explaining, it can be deployed in real-time research tools or batch pipeline settings.
+

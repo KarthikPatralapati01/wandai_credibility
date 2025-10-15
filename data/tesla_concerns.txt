@@ -1,0 +1,5 @@
+A 2025 investigation by the National Highway Traffic Safety Administration (NHTSA) found that multiple accidents involving Tesla’s Autopilot occurred because the driver-assist features failed to detect stationary vehicles.
+
+The official report stated that Tesla's driver monitoring system was less effective compared to competitors.
+
+NHTSA also reported that Tesla vehicles had a higher rate of Autopilot-related collisions per million miles compared to other manufacturers’ advanced driver-assistance systems.

@@ -1,0 +1,46 @@
+# Credibility Report
+
+- Source: Tesla_safety (unknown)
+  - Claim: However, the IIHS also warned that Tesla’s driver assistance features can encourage overreliance, leading to driver distraction in some cases.
+  - Score: 0.465 | Band: MEDIUM | Action: Verify
+  - Features: {"source_prior": 0.5, "linguistic": 0.3, "recency": 0.5, "contextuality": 0.5, "coi": 0.3, "corroboration": 0.519}
+
+- Source: ad_marketing (ad)
+  - Claim: This is the best cybersecurity solution in the world!
+  - Score: 0.356 | Band: LOW | Action: Flag/Potential bias
+  - Features: {"source_prior": 0.25, "linguistic": 0.3, "recency": 0.5, "contextuality": 0.2, "coi": 0.3, "corroboration": 0.553}
+
+- Source: ad_marketing (ad)
+  - Claim: No other company can come close to our results.
+  - Score: 0.371 | Band: LOW | Action: Flag/Potential bias
+  - Features: {"source_prior": 0.25, "linguistic": 0.5, "recency": 0.5, "contextuality": 0.5, "coi": 0.3, "corroboration": 0.374}
+
+- Source: peer_study (peer_review)
+  - Claim: The results indicate that while improvements exist, the company's claims of a 40% reduction may be overstated.
+  - Score: 0.669 | Band: HIGH | Action: Keep
+  - Features: {"source_prior": 0.9, "linguistic": 0.6, "recency": 0.5, "contextuality": 0.8, "coi": 0.8, "corroboration": 0.376}
+
+- Source: peer_study (peer_review)
+  - Claim: Additionally, adoption of zero-trust architecture is still in early phases.
+  - Score: 0.750 | Band: HIGH | Action: Keep
+  - Features: {"source_prior": 0.9, "linguistic": 0.5, "recency": 0.5, "contextuality": 0.8, "coi": 0.8, "corroboration": 0.76}
+
+- Source: pr_investor (corp_pr)
+  - Claim: Our CEO is a cybersecurity expert and we are proud to have the most innovative security platform in the industry.
+  - Score: 0.466 | Band: MEDIUM | Action: Verify
+  - Features: {"source_prior": 0.45, "linguistic": 0.3, "recency": 0.5, "contextuality": 0.5, "coi": 0.5, "corroboration": 0.553}
+
+- Source: pr_investor (corp_pr)
+  - Claim: Over the past year, we have reduced cyber breach incidents by 40% across all regions.
+  - Score: 0.467 | Band: MEDIUM | Action: Verify
+  - Features: {"source_prior": 0.45, "linguistic": 0.6, "recency": 0.5, "contextuality": 0.5, "coi": 0.5, "corroboration": 0.376}
+
+- Source: pr_investor (corp_pr)
+  - Claim: We will continue to lead the market with world-class zero-trust architecture.
+  - Score: 0.488 | Band: MEDIUM | Action: Verify
+  - Features: {"source_prior": 0.45, "linguistic": 0.3, "recency": 0.5, "contextuality": 0.2, "coi": 0.5, "corroboration": 0.76}
+
+- Source: NHTSA (gov)
+  - Claim: NHTSA also reported that Tesla vehicles had a higher rate of Autopilot-related collisions per million miles compared to other manufacturers’ advanced driver-assistance systems.
+  - Score: 0.647 | Band: MEDIUM | Action: Verify
+  - Features: {"source_prior": 0.85, "linguistic": 0.5, "recency": 0.5, "contextuality": 0.8, "coi": 0.3, "corroboration": 0.519}

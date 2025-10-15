@@ -1,0 +1,58 @@
+[
+  {
+    "claim_id": "C_S_Tesla_safety_07efd814",
+    "source_id": "S_Tesla_safety",
+    "text": "However, the IIHS also warned that Tesla\u2019s driver assistance features can encourage overreliance, leading to driver distraction in some cases.",
+    "score": 0.404,
+    "band": "LOW"
+  },
+  {
+    "claim_id": "C_S_ad_marketing_f8eec93a",
+    "source_id": "S_ad_marketing",
+    "text": "This is the best cybersecurity solution in the world!",
+    "score": 0.356,
+    "band": "LOW"
+  },
+  {
+    "claim_id": "C_S_ad_marketing_2a123bb7",
+    "source_id": "S_ad_marketing",
+    "text": "No other company can come close to our results.",
+    "score": 0.371,
+    "band": "LOW"
+  },
+  {
+    "claim_id": "C_S_peer_study_8a227a9b",
+    "source_id": "S_peer_study",
+    "text": "The results indicate that while improvements exist, the company's claims of a 40% reduction may be overstated.",
+    "score": 0.669,
+    "band": "HIGH"
+  },
+  {
+    "claim_id": "C_S_peer_study_579fa2a6",
+    "source_id": "S_peer_study",
+    "text": "Additionally, adoption of zero-trust architecture is still in early phases.",
+    "score": 0.75,
+    "band": "HIGH"
+  },
+  {
+    "claim_id": "C_S_pr_investor_66f6d464",
+    "source_id": "S_pr_investor",
+    "text": "Our CEO is a cybersecurity expert and we are proud to have the most innovative security platform in the industry.",
+    "score": 0.466,
+    "band": "MEDIUM"
+  },
+  {
+    "claim_id": "C_S_pr_investor_75e5dfd0",
+    "source_id": "S_pr_investor",
+    "text": "Over the past year, we have reduced cyber breach incidents by 40% across all regions.",
+    "score": 0.467,
+    "band": "MEDIUM"
+  },
+  {
+    "claim_id": "C_S_pr_investor_063a745c",
+    "source_id": "S_pr_investor",
+    "text": "We will continue to lead the market with world-class zero-trust architecture.",
+    "score": 0.488,
+    "band": "MEDIUM"
+  }
+]

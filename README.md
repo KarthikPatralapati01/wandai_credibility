@@ -1,4 +1,5 @@
-
+LOOM DEMO Link: 
+https://www.loom.com/share/5d9e0fb72e354d528d956bebc56d89a4?sid=63ae53e7-2a5e-48dc-99dc-19674d8660ac
 # 📊 Information Credibility System for LLM Research
 
 This project evaluates and updates the credibility of claims extracted from diverse sources (news, peer-reviewed studies, PRs, ads, etc.). It enables **initial credibility scoring** and **incremental updates** with new files (like Pitchbook reports), while ensuring:

@@ -115,7 +115,4 @@ Fallback mode (no embeddings or LLM) is supported.
 
 ---
 
-## 📬 Contact
-Built by [Venkata Karthik Patralapati]  
-Feel free to reach out for collaboration or questions!
 
